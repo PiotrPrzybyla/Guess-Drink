@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React, { useState } from "react";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [isStarted, setIsStarted] = useState(false);
+	function startGame() {
+		setIsStarted(true);
+	}
+	return (
+		<section>
+			<img className="logo" src="img/logo.png" alt="" />
+			{isStarted ? (
+				<div></div>
+			) : (
+				<button onClick={startGame} className="primary_btn">
+					Start Game
+				</button>
+			)}
+		</section>
+	);
 }
 
 export default App;
