@@ -4,9 +4,11 @@ import Loading from "./Loading";
 
 function Game(props) {
 	const [drawnDrinks, setDrawnDrinks] = useState([]);
+	const [correctDrink, setCorrectDrink] = useState();
 	const [currentDrinks, setCurrentDrinks] = useState([]);
 	const [isLoaded, setIsLoaded] = useState(false);
 	useEffect(() => {
+		const drawnNumber = Math.floor(Math.random() * props.variantAmount);
 		for (let i = 0; i < props.drinkAmount * props.variantAmount; i++) {
 			axios
 				.get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -17,6 +19,7 @@ function Game(props) {
 							...currentDrinks,
 							res.data.drinks[0],
 						]);
+					if (i === drawnNumber) setCorrectDrink(res.data.drinks[0]);
 					if (i === props.drinkAmount * props.variantAmount - 1) {
 						setIsLoaded(true);
 					}
@@ -29,6 +32,7 @@ function Game(props) {
 	function handleQuit(e) {
 		props.onQuit();
 	}
+
 	if (!isLoaded) {
 		return <Loading></Loading>;
 	} else
@@ -37,7 +41,11 @@ function Game(props) {
 				<div className="variants">
 					{currentDrinks.map((drink) => (
 						<button
-							onClick={(e) => console.log(drink.idDrink)}
+							onClick={(e) =>
+								drink.idDrink === correctDrink.idDrink
+									? console.log("Correct")
+									: console.log("Incorrect")
+							}
 							className="secondary_btn"
 							key={drink.idDrink}
 						>
