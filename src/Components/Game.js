@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-function Game() {
+function Game(props) {
 	const [drawnDrinks, setDrawnDrinks] = useState([]);
 	useEffect(() => {
-		for (let i = 0; i < 5; i++) {
+		for (let i = 0; i < props.drinkAmount; i++) {
 			axios
 				.get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 				.then((res) => {
