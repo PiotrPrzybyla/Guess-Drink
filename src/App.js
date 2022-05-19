@@ -10,7 +10,7 @@ function App() {
 		<section>
 			<img className="logo" src="img/logo.png" alt="" />
 			{isStarted ? (
-				<Game drinkAmount={15}></Game>
+				<Game drinkAmount={5} variantAmount={3}></Game>
 			) : (
 				<button onClick={startGame} className="primary_btn">
 					Start Game
