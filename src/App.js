@@ -1,4 +1,5 @@
 import "./App.css";
+import Game from "./Components/Game";
 import React, { useState } from "react";
 function App() {
 	const [isStarted, setIsStarted] = useState(false);
@@ -9,7 +10,7 @@ function App() {
 		<section>
 			<img className="logo" src="img/logo.png" alt="" />
 			{isStarted ? (
-				<div></div>
+				<Game></Game>
 			) : (
 				<button onClick={startGame} className="primary_btn">
 					Start Game
