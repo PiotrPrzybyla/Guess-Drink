@@ -6,11 +6,15 @@ function App() {
 	function startGame() {
 		setIsStarted(true);
 	}
+	//if user quit game while gaming
+	function handleQuit() {
+		setIsStarted(false);
+	}
 	return (
 		<section>
 			<img className="logo" src="img/logo.png" alt="" />
 			{isStarted ? (
-				<Game drinkAmount={5} variantAmount={3}></Game>
+				<Game drinkAmount={5} variantAmount={3} onQuit={handleQuit}></Game>
 			) : (
 				<button onClick={startGame} className="primary_btn">
 					Start Game

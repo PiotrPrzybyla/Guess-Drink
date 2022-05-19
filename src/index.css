@@ -24,7 +24,36 @@ button.primary_btn:hover {
 	background-color: #eee;
 	color: #111;
 }
-button.disabled code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-		monospace;
+
+button.secondary_btn {
+	font-size: 30px;
+	margin: 20px;
+	padding: 15px 35px;
+	border-radius: 15px;
+	border: 3px solid #333;
+	background-color: #bbb;
+	color: #333;
+	text-transform: uppercase;
+	transition: 0.3s;
+}
+button.secondary_btn:hover {
+	cursor: pointer;
+	background-color: #eee;
+	color: #111;
+}
+button.tertiary_btn {
+	font-size: 20px;
+	margin: 10px;
+	padding: 15px 35px;
+	border-radius: 15px;
+	border: 3px solid #333;
+	background-color: #bbb;
+	color: #333;
+	text-transform: uppercase;
+	transition: 0.3s;
+}
+button.tertiary_btn:hover {
+	cursor: pointer;
+	background-color: #eee;
+	color: #111;
 }
