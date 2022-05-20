@@ -53,7 +53,6 @@ function Game(props) {
 		if (currentPackage < props.drinkAmount) {
 			if (currentAnswer === correctDrinks[currentPackage - 1].idDrink)
 				setCorrectAnswers(correctAnswers + 1);
-			console.log(correctAnswers);
 			setCurrentPackage(currentPackage + 1);
 		} else {
 			setIsEnded(true);
