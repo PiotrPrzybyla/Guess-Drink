@@ -7,8 +7,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background-color: #333;
 	background-image: url(../public/img/bar-bgc.jpg);
-	color: #bbb;
+	color: #ddd;
 }
+
 button.primary_btn {
 	font-size: 45px;
 	padding: 15px 35px;

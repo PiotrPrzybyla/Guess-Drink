@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "./Loading";
+import Description from "./Description";
 
 function Game(props) {
 	const [drawnDrinks, setDrawnDrinks] = useState([]);
 	const [correctDrink, setCorrectDrink] = useState();
 	const [currentDrinks, setCurrentDrinks] = useState([]);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const [message, setMessage] = useState("");
 	useEffect(() => {
 		const drawnNumber = Math.floor(Math.random() * props.variantAmount);
 		for (let i = 0; i < props.drinkAmount * props.variantAmount; i++) {
@@ -38,13 +40,15 @@ function Game(props) {
 	} else
 		return (
 			<React.Fragment>
+				<Description drink={correctDrink}></Description>
+
 				<div className="variants">
 					{currentDrinks.map((drink) => (
 						<button
 							onClick={(e) =>
 								drink.idDrink === correctDrink.idDrink
-									? console.log("Correct")
-									: console.log("Incorrect")
+									? setMessage("Correct")
+									: setMessage("Incorrect")
 							}
 							className="secondary_btn"
 							key={drink.idDrink}
@@ -53,6 +57,7 @@ function Game(props) {
 						</button>
 					))}
 				</div>
+				<div className="message">{message}</div>
 				<button className="tertiary_btn">Choose</button>
 				<button className="tertiary_btn" onClick={handleQuit}>
 					Quit

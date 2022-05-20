@@ -1,15 +1,21 @@
 section {
 	width: 100%;
-	min-height: 100vh;
-	background-color: rgba(50, 50, 50, 0.85);
+	min-height: 80vh;
+	padding-top: 20vh;
+	background-color: rgba(50, 50, 50, 0.93);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
-
+div.message {
+	font-size: 35px;
+	text-transform: uppercase;
+	margin: 20px;
+}
 img.logo {
-	width: clamp(150px, 50%, 700px);
+	/* width: clamp(150px, 50%, 700px); */
+	height: 20vh;
 	position: absolute;
 	top: 0;
 }

@@ -1,0 +1,9 @@
+ul {
+	list-style: none;
+}
+li {
+	font-size: 30px;
+	margin: 5px;
+	letter-spacing: 1px;
+	/* text-transform: uppercase; */
+}
