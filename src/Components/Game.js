@@ -4,13 +4,18 @@ import Loading from "./Loading";
 import Description from "./Description";
 
 function Game(props) {
+	//game properties
 	const [drawnDrinks, setDrawnDrinks] = useState([]);
-	const [correctDrink, setCorrectDrink] = useState([]);
-	const [currentDrinks, setCurrentDrinks] = useState([]);
+	const [correctDrinks, setcorrectDrinks] = useState([]);
 	const [currentPackage, setCurrentPackage] = useState(1);
 	const [isLoaded, setIsLoaded] = useState(false);
-	const [message, setMessage] = useState("");
+	const [isEnded, setIsEnded] = useState(false);
+	//player properties
+	const [correctAnswers, setCorrectAnswers] = useState(0);
+	const [currentAnswer, setCurrentAnswer] = useState();
+
 	useEffect(() => {
+		// Draw correct drink
 		let drawnNumber = Math.floor(Math.random() * props.variantAmount);
 		for (let i = 0; i < props.drinkAmount * props.variantAmount; i++) {
 			axios
@@ -21,15 +26,15 @@ function Game(props) {
 						...drawnDrinks,
 						[Math.floor(i % props.variantAmount), res.data.drinks[0]],
 					]);
+
+					// In the end of package draw next correct drink
 					if (i % props.variantAmount === 0)
 						drawnNumber = Math.floor(Math.random() * props.variantAmount + i);
-					console.log(drawnNumber);
 					if (i === drawnNumber) {
-						setCorrectDrink((correctDrink) => [
-							...correctDrink,
+						setcorrectDrinks((correctDrinks) => [
+							...correctDrinks,
 							res.data.drinks[0],
 						]);
-						console.log(res.data.drinks[0]);
 					}
 
 					if (i === props.drinkAmount * props.variantAmount - 1) {
@@ -44,14 +49,27 @@ function Game(props) {
 	function handleQuit(e) {
 		props.onQuit();
 	}
+	function chooseAnswer(e) {
+		if (currentPackage < props.drinkAmount) {
+			if (currentAnswer === correctDrinks[currentPackage - 1].idDrink)
+				setCorrectAnswers(correctAnswers + 1);
+			console.log(correctAnswers);
+			setCurrentPackage(currentPackage + 1);
+		} else {
+			setIsEnded(true);
+		}
+	}
 
 	if (!isLoaded) {
 		return <Loading></Loading>;
-	} else
+	} else if (isEnded)
+		return (
+			<div className="correct_answers"> Correct Answers: {correctAnswers}</div>
+		);
+	else {
 		return (
 			<React.Fragment>
-				<Description drink={correctDrink[currentPackage - 1]}></Description>
-				{console.log(correctDrink)}
+				<Description drink={correctDrinks[currentPackage - 1]}></Description>
 				<div className="variants">
 					{drawnDrinks.map((drink, id) => {
 						if (
@@ -60,11 +78,7 @@ function Game(props) {
 						) {
 							return (
 								<button
-									onClick={(e) =>
-										drink[1].idDrink === correctDrink.idDrink
-											? setMessage("Correct")
-											: setMessage("Incorrect")
-									}
+									onClick={(e) => setCurrentAnswer(drink[1].idDrink)}
 									className="secondary_btn"
 									key={drink[1].idDrink}
 								>
@@ -74,11 +88,7 @@ function Game(props) {
 						}
 					})}
 				</div>
-				<div className="message">{message}</div>
-				<button
-					className="tertiary_btn"
-					onClick={(e) => setCurrentPackage(currentPackage + 1)}
-				>
+				<button className="tertiary_btn" onClick={chooseAnswer}>
 					Choose
 				</button>
 				<button className="tertiary_btn" onClick={handleQuit}>
@@ -86,6 +96,7 @@ function Game(props) {
 				</button>
 			</React.Fragment>
 		);
+	}
 }
 
 export default Game;

@@ -22,3 +22,7 @@ img.logo {
 div.variants {
 	margin: 70px;
 }
+div.correct_answers {
+	font-size: 55px;
+	letter-spacing: 2px;
+}
