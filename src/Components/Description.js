@@ -20,7 +20,7 @@ function Description(props) {
 			props.drink.strIngredient14,
 			props.drink.strIngredient15,
 		]);
-	}, []);
+	}, [props]);
 	return (
 		<ul>
 			{ingredients.map((el, id) => {
