@@ -1,0 +1,12 @@
+div.answers {
+	display: flex;
+}
+div.correct_answers {
+	margin: 30px;
+}
+ul {
+	margin: 0 30px;
+}
+li {
+	margin: 25px 0;
+}

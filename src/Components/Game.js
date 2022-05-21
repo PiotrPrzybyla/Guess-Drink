@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import Description from "./Description";
+import Result from "./Result";
 
 function Game(props) {
 	//game properties
@@ -12,7 +13,8 @@ function Game(props) {
 	const [isEnded, setIsEnded] = useState(false);
 	//player properties
 	const [correctAnswers, setCorrectAnswers] = useState(0);
-	const [currentAnswer, setCurrentAnswer] = useState();
+	const [currentAnswer, setCurrentAnswer] = useState({});
+	const [answers, setAnswers] = useState([]);
 
 	useEffect(() => {
 		// Draw correct drink
@@ -50,11 +52,11 @@ function Game(props) {
 		props.onQuit();
 	}
 	function chooseAnswer(e) {
-		if (currentPackage < props.drinkAmount) {
-			if (currentAnswer === correctDrinks[currentPackage - 1].idDrink)
-				setCorrectAnswers(correctAnswers + 1);
-			setCurrentPackage(currentPackage + 1);
-		} else {
+		if (currentAnswer.idDrink === correctDrinks[currentPackage - 1].idDrink)
+			setCorrectAnswers(correctAnswers + 1);
+		setCurrentPackage(currentPackage + 1);
+		setAnswers((answers) => [...answers, currentAnswer]);
+		if (currentPackage === props.drinkAmount) {
 			setIsEnded(true);
 		}
 	}
@@ -63,7 +65,13 @@ function Game(props) {
 		return <Loading></Loading>;
 	} else if (isEnded)
 		return (
-			<div className="correct_answers"> Correct Answers: {correctAnswers}</div>
+			<Result
+				allAnswers={props.drinkAmount}
+				correctDrinks={correctDrinks}
+				correctAnswers={correctAnswers}
+				answers={answers}
+				onQuit={handleQuit}
+			></Result>
 		);
 	else {
 		return (
@@ -77,9 +85,13 @@ function Game(props) {
 						) {
 							return (
 								<button
-									onClick={(e) => setCurrentAnswer(drink[1].idDrink)}
-									className="secondary_btn"
-									key={drink[1].idDrink}
+									onClick={(e) => setCurrentAnswer(drink[1])}
+									className={
+										currentAnswer.idDrink === drink[1].idDrink
+											? "secondary_btn chosen_btn"
+											: "secondary_btn"
+									}
+									key={id}
 								>
 									{drink[1].strDrink}
 								</button>

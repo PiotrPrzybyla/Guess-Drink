@@ -13,6 +13,10 @@ div.message {
 	text-transform: uppercase;
 	margin: 20px;
 }
+div.menu {
+	display: flex;
+	flex-direction: column;
+}
 img.logo {
 	/* width: clamp(150px, 50%, 700px); */
 	height: 20vh;
