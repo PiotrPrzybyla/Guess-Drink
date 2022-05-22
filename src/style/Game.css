@@ -3,5 +3,15 @@ div.variants {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 40vw;
+	width: 50vw;
+}
+@media (max-width: 1600px) {
+	div.variants {
+		width: 70vw;
+	}
+}
+@media (max-width: 800px) {
+	div.variants {
+		width: 90vw;
+	}
 }

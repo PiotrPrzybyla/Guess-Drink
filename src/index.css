@@ -23,19 +23,23 @@ h2 {
 	margin: 30px 0;
 }
 
+button {
+	background-color: var(--btn-bgc);
+}
+button:hover {
+	background-color: var(--btn-hover-bgc);
+	cursor: pointer;
+}
 button.primary_btn {
 	font-size: 45px;
 	padding: 15px 35px;
 	border-radius: 15px;
 	border: 3px solid #333;
-	background-color: var(--btn-bgc);
 	color: #333;
 	text-transform: uppercase;
 	transition: 0.3s;
 }
 button.primary_btn:hover {
-	cursor: pointer;
-	background-color: var(--btn-hover-bgc);
 	color: #111;
 }
 
@@ -45,14 +49,11 @@ button.secondary_btn {
 	padding: 15px 35px;
 	border-radius: 15px;
 	border: 3px solid #333;
-	background-color: var(--btn-bgc);
 	color: #333;
 	text-transform: uppercase;
 	transition: 0.3s;
 }
 button.secondary_btn:hover {
-	cursor: pointer;
-	background-color: var(--btn-hover-bgc);
 	color: #111;
 }
 button.tertiary_btn {
@@ -61,17 +62,48 @@ button.tertiary_btn {
 	padding: 15px 35px;
 	border-radius: 15px;
 	border: 3px solid #333;
-	background-color: var(--btn-bgc);
 	color: #333;
 	text-transform: uppercase;
 	transition: 0.3s;
 }
 button.tertiary_btn:hover {
-	cursor: pointer;
-	background-color: var(--btn-hover-bgc);
 	color: #111;
 }
 button.chosen_btn {
 	border: green solid 5px;
 	transition: 0s;
+}
+@media (max-width: 800px) {
+	h2 {
+		font-size: 25px;
+	}
+}
+@media (max-width: 400px) {
+	button.primary_btn {
+		font-size: 35px;
+	}
+	button.tertiary_btn {
+		font-size: 15px;
+	}
+	button.secondary_btn {
+		font-size: 25px;
+	}
+	h1 {
+		font-size: 30px;
+		letter-spacing: 2px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+}
+@media (max-width: 300px) {
+	button.primary_btn {
+		font-size: 30px;
+	}
+	h1 {
+		font-size: 25px;
+	}
+	h2 {
+		font-size: 12px;
+	}
 }

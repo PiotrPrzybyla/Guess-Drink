@@ -7,5 +7,21 @@ button.variant:hover {
 }
 img.variant_img {
 	/* width: 10vw; */
-	width: 100%;
+	width: 70%;
+	margin: 5px;
+}
+@media (max-width: 600px) {
+	button.variant {
+		width: 65%;
+	}
+}
+@media (max-width: 450px) {
+	button.variant {
+		width: 75%;
+	}
+}
+@media (max-width: 350px) {
+	button.variant {
+		width: 95%;
+	}
 }

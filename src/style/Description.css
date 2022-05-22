@@ -1,5 +1,7 @@
-ul {
+.description ul {
 	list-style: none;
+	margin: 20px;
+	padding: 0;
 }
 li {
 	font-size: 30px;
@@ -12,4 +14,22 @@ div.description {
 }
 div.measures {
 	text-align: right;
+}
+@media (max-width: 800px) {
+	li {
+		font-size: 20px;
+	}
+}
+@media (max-width: 500px) {
+	li {
+		font-size: 15px;
+	}
+	.description ul {
+		margin: 10px;
+	}
+}
+@media (max-width: 300px) {
+	li {
+		font-size: 12px;
+	}
 }

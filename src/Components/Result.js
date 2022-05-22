@@ -8,7 +8,9 @@ function Result(props) {
 	return (
 		<React.Fragment>
 			<div className="correct_answers">
-				Result: {props.correctAnswers} / {props.allAnswers}
+				<h1>
+					Result: {props.correctAnswers} / {props.allAnswers}
+				</h1>
 			</div>
 			<div className="answers">
 				<div className="correct_drinks">

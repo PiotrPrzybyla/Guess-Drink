@@ -19,7 +19,8 @@ div.menu {
 }
 img.logo {
 	/* width: clamp(150px, 50%, 700px); */
-	height: 20vh;
+	max-height: 20vh;
+	max-width: 90vw;
 	position: absolute;
 	top: 0;
 }

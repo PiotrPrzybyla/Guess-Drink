@@ -6,7 +6,21 @@ div.correct_answers {
 }
 ul {
 	margin: 0 30px;
+	list-style: none;
 }
 li {
 	margin: 25px 0;
+}
+@media (max-width: 400px) {
+	ul {
+		margin: 0 10px;
+	}
+	div.correct_answers {
+		margin: 10px;
+	}
+}
+@media (max-width: 400px) {
+	ul {
+		margin: 0;
+	}
 }
