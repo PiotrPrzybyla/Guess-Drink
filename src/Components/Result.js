@@ -1,5 +1,5 @@
 import React from "react";
-import "../Result.css";
+import "../style/Result.css";
 
 function Result(props) {
 	function handleQuit(e) {

@@ -15,6 +15,8 @@ body {
 }
 h1 {
 	font-size: 40px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
 }
 h2 {
 	font-size: 30px;
@@ -70,6 +72,6 @@ button.tertiary_btn:hover {
 	color: #111;
 }
 button.chosen_btn {
-	border-color: green;
+	border: green solid 5px;
 	transition: 0s;
 }

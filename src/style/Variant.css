@@ -1,0 +1,11 @@
+button.variant {
+	margin: 10px;
+	width: 45%;
+}
+button.variant:hover {
+	cursor: pointer;
+}
+img.variant_img {
+	/* width: 10vw; */
+	width: 100%;
+}

@@ -3,6 +3,8 @@ import axios from "axios";
 import Loading from "./Loading";
 import Description from "./Description";
 import Result from "./Result";
+import Variant from "./Variant";
+import "../style/Game.css";
 
 function Game(props) {
 	//game properties
@@ -59,6 +61,7 @@ function Game(props) {
 		if (currentPackage === props.drinkAmount) {
 			setIsEnded(true);
 		}
+		window.scrollTo(0, 0);
 	}
 
 	if (!isLoaded) {
@@ -84,17 +87,12 @@ function Game(props) {
 							id >= currentPackage * props.variantAmount - props.variantAmount
 						) {
 							return (
-								<button
-									onClick={(e) => setCurrentAnswer(drink[1])}
-									className={
-										currentAnswer.idDrink === drink[1].idDrink
-											? "secondary_btn chosen_btn"
-											: "secondary_btn"
-									}
+								<Variant
+									isChosen={currentAnswer.idDrink === drink[1].idDrink}
 									key={id}
-								>
-									{drink[1].strDrink}
-								</button>
+									drink={drink[1]}
+									onPick={(e) => setCurrentAnswer(drink[1])}
+								></Variant>
 							);
 						}
 					})}

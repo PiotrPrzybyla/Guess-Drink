@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Description.css";
+import "../style/Description.css";
 function Description(props) {
 	const [ingredients, setIngredients] = useState([]);
 	const [measures, setMeasures] = useState([]);

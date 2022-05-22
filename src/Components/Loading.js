@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Loading.css";
+import "../style/Loading.css";
 function Loading() {
 	const [dots, setDots] = useState("");
 	useEffect(() => {

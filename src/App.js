@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style/App.css";
 import Game from "./Components/Game";
 import logo from "./img/logo.png";
 import React, { useState } from "react";
@@ -21,7 +21,7 @@ function App() {
 		<section>
 			<img className="logo" src={logo} alt="" />
 			{isStarted ? (
-				<Game drinkAmount={5} variantAmount={3} onQuit={handleQuit}></Game>
+				<Game drinkAmount={5} variantAmount={4} onQuit={handleQuit}></Game>
 			) : isRules ? (
 				<Rules onQuit={handleQuit}></Rules>
 			) : (

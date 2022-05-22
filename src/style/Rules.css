@@ -1,0 +1,9 @@
+div.rules {
+	display: flex;
+	flex-direction: column;
+	margin: 30px;
+	align-items: center;
+}
+p {
+	font-size: 25px;
+}
