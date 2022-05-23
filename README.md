@@ -1,3 +1,11 @@
+# Guess Drink
+
+This is app to train your knowledge about drinks. You must guess drink based od shown ingredients.
+
+## Installation
+
+App is deployed on heroku https://guess-drink.herokuapp.com/ but you can also clone that repository and open it with npm, becasue this app is made with Create React App package
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
