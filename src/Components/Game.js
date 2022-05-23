@@ -79,7 +79,11 @@ function Game(props) {
 	else {
 		return (
 			<React.Fragment>
+				<h2>
+					Drink {currentPackage} / {props.drinkAmount}
+				</h2>
 				<Description drink={correctDrinks[currentPackage - 1]}></Description>
+
 				<div className="variants">
 					{drawnDrinks.map((drink, id) => {
 						if (
