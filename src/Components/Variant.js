@@ -1,7 +1,6 @@
 import React from "react";
 import "../style/Variant.css";
 function Variant(props) {
-	// return <button>{props.drink.strDrink}</button>;
 	return (
 		<button
 			onClick={props.onPick}
